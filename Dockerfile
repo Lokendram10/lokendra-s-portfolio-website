@@ -1,4 +1,4 @@
-FROM nginix:alpine
+FROM nginx:alpine
 WORKDIR /app
 COPY . . 
 EXPOSE 80:80
