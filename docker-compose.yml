@@ -1,0 +1,8 @@
+version: '3.9'  # Compose file version
+
+services:
+  web:
+    build: .               # Dockerfile location (current folder)
+    ports:
+      - "80:80"            # Map container port 80 to host port 80
+    restart: unless-stopped # Optional: auto-restart if container stops
