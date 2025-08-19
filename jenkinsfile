@@ -17,8 +17,8 @@ pipeline {
 
         stage('deploy'){
            steps{
-             echo'creating container'
-           sh' docker run -d -p 80:80 portfolio:latest'
+             echo'deploying'
+           sh' docker compose up -d --build'
             }
           }
 
