@@ -1,0 +1,26 @@
+pipeline {
+ agent{label 'loki'}
+    stages{
+         stage('clone repo'){
+           steps{
+             echo 'cloning repo'
+             git branch: 'main' , url: 'https://github.com/Lokendram10/lokendra-s-portfolio-website'
+            }
+          }
+
+         stage('build'){
+           steps{
+             echo' creating docker image'
+             sh ' docker build  -t portfolio:latest .'
+            }
+          }
+
+        stage('deploy'){
+           steps{
+             echo'creating container'
+           sh' docker run -d -p 80:80 portfolio:latest'
+            }
+          }
+
+  }
+}
