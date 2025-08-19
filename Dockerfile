@@ -1,5 +1,6 @@
 FROM nginx:alpine
 WORKDIR /app
-COPY . . 
+RUN rm -rf /usr/share/nginx/html/*
+COPY . . /usr/share/nginx/html
 EXPOSE 80:80
 CMD [  "nginx", "-g", "daemon off;" ]
