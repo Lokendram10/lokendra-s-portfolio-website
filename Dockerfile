@@ -1,0 +1,5 @@
+FROM nginix:alpine
+WORKDIR /app
+COPY . . 
+EXPOSE 80:80
+CMD [  "nginx", "-g", "daemon off;" ]
