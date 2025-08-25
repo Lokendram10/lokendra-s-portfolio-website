@@ -11,7 +11,7 @@ pipeline {
          stage('Build Image'){
            steps{
              echo' creating docker image'
-             sh ' docker build  -t portfolio:latest .'
+             sh ' docker build  -t lokendradhote64/portfolio:latest .'
             }
           }
 
