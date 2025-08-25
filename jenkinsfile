@@ -1,21 +1,28 @@
 pipeline {
  agent any
     stages{
-         stage('clone repo'){
+         stage('Clone Repository'){
            steps{
-             echo 'cloning repo'
+             echo 'cloning repository'
              git branch: 'main' , url: 'https://github.com/Lokendram10/lokendra-s-portfolio-website'
             }
           }
 
-         stage('build'){
+         stage('Build Image'){
            steps{
              echo' creating docker image'
              sh ' docker build  -t portfolio:latest .'
             }
           }
 
-        stage('deploy'){
+         stage('Security Scan'){
+           steps{
+             echo' scanning using trivy'
+             sh ' trivy image --severity HIGH,CRITICAL -f json -o portfolo.json portfolio:latest  '
+            }
+          }
+
+        stage('Deploy'){
            steps{
              echo'deploying'
            sh' docker compose up -d --build'

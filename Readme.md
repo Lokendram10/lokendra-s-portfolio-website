@@ -8,6 +8,7 @@
 ## 🔧 Tech Used  
 - AWS EC2  
 - Jenkins  
+- Trivy 
 - Docker & Docker Compose  
 - GitHub (SCM Integration)  
 
