@@ -18,7 +18,7 @@ pipeline {
           stage('Security Scan'){
            steps{
              echo' scanning using trivy'
-             sh ' trivy image --severity HIGH,CRITICAL -f json -o portfolo.json lokendradhote64/portfolio:latest  '
+             sh ' trivy image --severity HIGH,CRITICAL -f json -o portfolio.json lokendradhote64/portfolio:latest  '
             }
           }
 
