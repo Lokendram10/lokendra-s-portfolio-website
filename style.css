@@ -5,6 +5,7 @@
 * {
   margin: 0;
   padding: 0;
+  
 }
 
 body {
@@ -49,6 +50,9 @@ a {
   color: black;
   text-decoration: none;
   text-decoration-color: white;
+    display: inline-block; /* important: so only text behaves like block */
+  transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+
 }
 
 a:hover {
@@ -56,21 +60,38 @@ a:hover {
   text-decoration: underline;
   text-underline-offset: 1rem;
   text-decoration-color: rgb(181, 181, 181);
-}
-
-.logo {
-  font-size: 2rem;
       /* transition: 0.3s ease-in-out;
   background: linear-gradient(to right, rgb(255,0,255), rgb(0, 157, 255));
   background-clip: text;
   color: transparent; */
+    background: linear-gradient(to right, rgb(255,0,255), rgb(0,157,255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  transform: scale(1.1); /* text will grow */
+
+
+}
+
+.logo {
+  font-size: 2rem;
+    display: inline-block; /* important: so only text behaves like block */
+  transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 
 
 }
 
 .logo:hover {
-  cursor: default;
+  background: linear-gradient(to right, rgb(255,0,255), rgb(0,157,255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  transform: scale(1.1); /* text will grow */
+  /* text-shadow: 0px 0px 10px rgba(0,157,255,0.6); */
 }
+
 
 /* HAMBURGER MENU */
 
@@ -182,6 +203,8 @@ section {
   margin: auto 0;
 }
 
+
+
 .section__text {
   align-self: center;
   text-align: center;
@@ -199,11 +222,22 @@ section {
 .section__text__p2 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
-    transition: 0.3s ease-in-out;
+
   background: linear-gradient(to right, rgb(255,0,255), rgb(0, 157, 255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
+
+  display: inline-block; /* so only text scales */
+  transition: transform 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
 }
+
+.section__text__p2:hover {
+  transform: scale(1.1); /* text grows smoothly */
+  text-shadow: 0px 0px 0px rgba(0, 157, 255, 0.6);
+}
+
 
 .title {
   font-size: 3rem;
@@ -215,13 +249,21 @@ section {
   justify-content: center;
   margin-top: 1rem;
   gap: 1rem;
+ 
 }
+
 
 /* ICONS */
 
 .icon {
   cursor: pointer;
   height: 2rem;
+}
+
+.icon:hover {
+  transform: scale(1.2);
+  transition: 0.3s ease-in-out;
+  filter: drop-shadow(0px 0px 0px rgba(0, 157, 255, 0.6));
 }
 
 /* BUTTONS */
@@ -233,11 +275,23 @@ section {
 }
 
 .btn {
-  font-weight: 600;
+  /* font-weight: 600;
   transition: all 300ms ease;
   padding: 1rem;
   width: 8rem;
-  border-radius: 2rem;
+  border-radius: 2rem; */
+
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(to right, rgb(255,0,255), rgb(0,157,255));
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none; /* if it’s a link */
+  display: inline-block;
 }
 
 .btn-color-1,
@@ -248,6 +302,13 @@ section {
 .btn-color-1:hover,
 .btn-color-2:hover {
   cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 15px rgba(0, 157, 255, 0.4);
+
+  transition: 0.3s ease-in-out;
+  background: linear-gradient(to right, rgb(255,0,255), rgb(0, 157, 255));
+ 
+ 
 }
 
 .btn-color-1,
@@ -258,6 +319,12 @@ section {
 
 .btn-color-1:hover {
   background: rgb(0, 0, 0);
+    background: linear-gradient(to right, rgb(255,0,255), rgb(0,157,255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  transform: scale(1.1); /* text will grow */
 }
 
 .btn-color-2 {
@@ -266,6 +333,12 @@ section {
 
 .btn-color-2:hover {
   border: rgb(255, 255, 255) 0.1rem solid;
+    background: linear-gradient(to right, rgb(255,0,255), rgb(0,157,255));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  transform: scale(1.1); /* text will grow */
 }
 
 .btn-container {
@@ -375,11 +448,19 @@ article .icon {
   background: rgb(250, 250, 250);
 }
 
+
 .project-img {
   border-radius: 2rem;
   width: 90%;
   height: 90%;
+  transition: transform 0.3s ease-in-out; /* smooth transition */
 }
+.project-img:hover{
+   transform: scale(1.1); /* text grows smoothly */
+ 
+}
+
+
 
 .project-title {
   margin: 1rem;
